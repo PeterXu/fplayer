@@ -1,6 +1,10 @@
 part of fplayer;
 
 class FPlayer extends ChangeNotifier implements ValueListenable<FValue> {
+  Future<String?> getPlatformVersion() {
+    return FplayerPlatform.instance.getPlatformVersion();
+  }
+
   static final Map<int, FPlayer> _allInstance = HashMap();
   String? _dataSource;
 

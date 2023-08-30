@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
+import 'dart:async';
+
+import 'package:flutter/services.dart';
+import 'package:fplayer/fplayer.dart';
 
 import 'home_page.dart';
 

@@ -73,7 +73,7 @@ class _FSliderState extends State<FSlider> {
 
     return GestureDetector(
       child: Container(
-        margin: EdgeInsets.only(left: margin, right: margin),
+        margin: const EdgeInsets.only(left: margin, right: margin),
         height: double.infinity,
         width: double.infinity,
         color: Colors.transparent,

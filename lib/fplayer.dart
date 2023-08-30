@@ -1,5 +1,7 @@
 library fplayer;
 
+import 'fplayer_platform_interface.dart';
+
 import 'dart:async';
 import 'dart:collection';
 import 'dart:core';

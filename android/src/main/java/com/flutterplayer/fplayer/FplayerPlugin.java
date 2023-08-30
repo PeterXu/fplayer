@@ -95,6 +95,13 @@ public class FplayerPlugin implements MethodCallHandler, FlutterPlugin, Activity
     private boolean mAudioFocusRequested = false;
 
 
+    /// The MethodChannel that will the communication between Flutter and native Android
+    ///
+    /// This local reference serves to register the plugin with the Flutter Engine and unregister it
+    /// when the Flutter Engine is detached from the Activity
+    private MethodChannel channel;
+
+
     /**
      * Plugin registration.
      */
@@ -112,7 +119,7 @@ public class FplayerPlugin implements MethodCallHandler, FlutterPlugin, Activity
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
-        final MethodChannel channel = new MethodChannel(binding.getBinaryMessenger(), "befovy.com/fijk");
+        channel = new MethodChannel(binding.getBinaryMessenger(), "befovy.com/fijk");
         initWithBinding(binding);
         channel.setMethodCallHandler(this);
 
@@ -129,6 +136,7 @@ public class FplayerPlugin implements MethodCallHandler, FlutterPlugin, Activity
 
     @Override
     public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
+        channel.setMethodCallHandler(null);
         mContext = null;
     }
 
