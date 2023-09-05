@@ -23,6 +23,7 @@
 #import "FplayerPlugin.h"
 #import "FPlayer.h"
 #import "FQueuingEventSink.h"
+#import "FConst.h"
 
 #import <AVKit/AVKit.h>
 #import <Flutter/Flutter.h>
@@ -57,7 +58,7 @@ static FplayerPlugin *_instance = nil;
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar> *)registrar {
     FlutterMethodChannel *channel =
-        [FlutterMethodChannel methodChannelWithName:@"befovy.com/fijk"
+        [FlutterMethodChannel methodChannelWithName:[FConst getMethodChannel]
                                     binaryMessenger:[registrar messenger]];
     FplayerPlugin *instance = [[FplayerPlugin alloc] initWithRegistrar:registrar];
     _instance = instance;
@@ -86,7 +87,7 @@ static FplayerPlugin *_instance = nil;
         _eventSink = [[FQueuingEventSink alloc] init];
 
         _eventChannel =
-            [FlutterEventChannel eventChannelWithName:@"befovy.com/fijk/event"
+            [FlutterEventChannel eventChannelWithName:[FConst getEventChannel]
                                       binaryMessenger:[registrar messenger]];
         [_eventChannel setStreamHandler:self];
 

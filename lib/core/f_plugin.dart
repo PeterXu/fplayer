@@ -4,7 +4,8 @@ class FPlugin {
   /// Make constructor private
   const FPlugin._();
 
-  static const MethodChannel _channel = MethodChannel('befovy.com/fijk');
+  static final MethodChannel _channel =
+      MethodChannel(FConst.getMethodChannel());
 
   static Future<int> _createPlayer() async {
     int? pid = await _channel.invokeMethod("createPlayer");
@@ -128,7 +129,7 @@ class FPlugin {
   static void _onLoad(String type) {
     if (_eventSubs == null) {
       FLog.i("_onLoad $type");
-      _eventSubs = const EventChannel("befovy.com/fijk/event")
+      _eventSubs = EventChannel(FConst.getEventChannel())
           .receiveBroadcastStream()
           .listen(FPlugin._eventListener, onError: FPlugin._errorListener);
     }

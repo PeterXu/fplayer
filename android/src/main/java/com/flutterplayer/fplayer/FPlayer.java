@@ -100,11 +100,11 @@ public class FPlayer implements MethodChannel.MethodCallHandler, IjkEventListene
             mIjkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "start-on-prepared", 0);
 
             // IjkMediaPlayer.native_setLogLevel(IjkMediaPlayer.IJK_LOG_INFO);
-            mMethodChannel = new MethodChannel(mEngine.messenger(), "befovy.com/fijkplayer/" + mPlayerId);
+            mMethodChannel = new MethodChannel(mEngine.messenger(), FConst.getPlayerMethodChannel(mPlayerId));
             mMethodChannel.setMethodCallHandler(this);
             mIjkMediaPlayer.setOnSnapShotListener(this);
 
-            mEventChannel = new EventChannel(mEngine.messenger(), "befovy.com/fijkplayer/event/" + mPlayerId);
+            mEventChannel = new EventChannel(mEngine.messenger(), FConst.getPlayerEventChannel(mPlayerId));
             mEventChannel.setStreamHandler(new EventChannel.StreamHandler() {
                 @Override
                 public void onListen(Object o, EventChannel.EventSink eventSink) {

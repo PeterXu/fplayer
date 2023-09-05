@@ -107,7 +107,7 @@ public class FplayerPlugin implements MethodCallHandler, FlutterPlugin, Activity
      */
     @SuppressWarnings("unused")
     public static void registerWith(Registrar registrar) {
-        final MethodChannel channel = new MethodChannel(registrar.messenger(), "befovy.com/fijk");
+        final MethodChannel channel = new MethodChannel(registrar.messenger(), FConst.getMethodChannel());
         FplayerPlugin plugin = new FplayerPlugin();
         plugin.initWithRegistrar(registrar);
         channel.setMethodCallHandler(plugin);
@@ -119,7 +119,7 @@ public class FplayerPlugin implements MethodCallHandler, FlutterPlugin, Activity
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
-        channel = new MethodChannel(binding.getBinaryMessenger(), "befovy.com/fijk");
+        channel = new MethodChannel(binding.getBinaryMessenger(), FConst.getMethodChannel());
         initWithBinding(binding);
         channel.setMethodCallHandler(this);
 
@@ -254,7 +254,7 @@ public class FplayerPlugin implements MethodCallHandler, FlutterPlugin, Activity
             mEventChannel.setStreamHandler(null);
             mEventSink.setDelegate(null);
         }
-        mEventChannel = new EventChannel(messenger, "befovy.com/fijk/event");
+        mEventChannel = new EventChannel(messenger, FConst.getEventChannel());
         mEventChannel.setStreamHandler(new EventChannel.StreamHandler() {
             @Override
             public void onListen(Object o, EventChannel.EventSink eventSink) {

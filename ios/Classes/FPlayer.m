@@ -24,6 +24,7 @@
 #import "FHostOption.h"
 #import "FplayerPlugin.h"
 #import "FQueuingEventSink.h"
+#import "FConst.h"
 
 #import <Flutter/Flutter.h>
 #import <Foundation/Foundation.h>
@@ -133,9 +134,7 @@ static int renderType = 0;
         [_ijkMediaPlayer addIJKMPEventHandler:self];
 
         _methodChannel = [FlutterMethodChannel
-            methodChannelWithName:[@"befovy.com/fijkplayer/"
-                                      stringByAppendingString:[_playerId
-                                                                  stringValue]]
+            methodChannelWithName:[FConst getPlayerMethodChannel:[_playerId stringValue]]
                   binaryMessenger:[registrar messenger]];
 
         __block typeof(self) weakSelf = self;
@@ -145,9 +144,7 @@ static int renderType = 0;
         }];
 
         _eventChannel = [FlutterEventChannel
-            eventChannelWithName:[@"befovy.com/fijkplayer/event/"
-                                     stringByAppendingString:[_playerId
-                                                                 stringValue]]
+            eventChannelWithName:[FConst getPlayerEventChannel:[_playerId stringValue]]
                  binaryMessenger:[registrar messenger]];
 
         [_eventChannel setStreamHandler:self];

@@ -15,6 +15,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+part 'core/f_const.dart';
 part 'core/f_log.dart';
 part 'core/f_option.dart';
 part 'core/f_player.dart';

@@ -153,9 +153,9 @@ class FPlayer extends ChangeNotifier implements ValueListenable<FValue> {
     FLog.i("create player id:$_playerId");
 
     _allInstance[_playerId] = this;
-    _channel = MethodChannel('befovy.com/fijkplayer/$_playerId');
+    _channel = MethodChannel(FConst.getPlayerMethodChannel(_playerId));
     _nativeEventSubscription =
-        EventChannel('befovy.com/fijkplayer/event/$_playerId')
+        EventChannel(FConst.getPlayerEventChannel(_playerId))
             .receiveBroadcastStream()
             .listen(_eventListener, onError: _errorListener);
     _nativeSetup.complete(_playerId);
