@@ -16,7 +16,7 @@ DEPENDENCIES:
   - battery_plus (from `.symlinks/plugins/battery_plus/ios`)
   - Flutter (from `Flutter`)
   - fplayer (from `.symlinks/plugins/fplayer/ios`)
-  - fplayer-core (from `../../../ijkplayer-ios/ios/build/fplayer-core`)
+  - fplayer-core (from `../../../ijkplayer/ios/build/fplayer-core`)
   - screen_brightness_ios (from `.symlinks/plugins/screen_brightness_ios/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
 
@@ -28,20 +28,20 @@ EXTERNAL SOURCES:
   fplayer:
     :path: ".symlinks/plugins/fplayer/ios"
   fplayer-core:
-    :path: "../../../ijkplayer-ios/ios/build/fplayer-core"
+    :path: "../../../ijkplayer/ios/build/fplayer-core"
   screen_brightness_ios:
     :path: ".symlinks/plugins/screen_brightness_ios/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/ios"
 
 SPEC CHECKSUMS:
-  battery_plus: 7851ab482c336dd101ae735dc9363f01e1223c7c
+  battery_plus: 9bff772a7e5e4d5381ca3ca92a97373a3d8b2738
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   fplayer: 1c91d4e33e9988956fdded8535c2633899d691ce
   fplayer-core: 75f662c872154b9d6e2e0338afb9ef47d79c66d7
   screen_brightness_ios: 715ca807df953bf676d339f11464e438143ee625
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
 
-PODFILE CHECKSUM: 33962ede81cedaf88224088e43fcdea264ca02ea
+PODFILE CHECKSUM: c5d114a4490a8d2e729565147b7f0f87f6da4759
 
 COCOAPODS: 1.12.1

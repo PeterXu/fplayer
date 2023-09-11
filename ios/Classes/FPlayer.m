@@ -220,8 +220,8 @@ static int renderType = 0;
     }
 
     CVPixelBufferRef newBuffer = pixelbuffer;
-
     CVPixelBufferRef old = _latestPixelBuffer;
+
     while (!OSAtomicCompareAndSwapPtrBarrier(old, newBuffer,
                                              (void **)&_latestPixelBuffer)) {
         old = _latestPixelBuffer;
@@ -244,6 +244,12 @@ static int renderType = 0;
         pixelBuffer = _latestPixelBuffer;
     }
     return pixelBuffer;
+}
+
+- (void)onTextureUnregistered:(NSObject<FlutterTexture> *)texture {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //TODO
+    });
 }
 
 - (NSNumber *)setupSurface {

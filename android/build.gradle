@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.0'
+        classpath 'com.android.tools.build:gradle:7.1.2'
     }
 }
 
@@ -17,7 +17,7 @@ rootProject.allprojects {
         google()
         mavenCentral()
         flatDir {
-            dirs "${project(':fplayer').projectDir}/../../ijkplayer-android/android/build/fplayer-core/aar"
+            dirs "${project(':fplayer').projectDir}/../../ijkplayer/android/build/fplayer-core/aar"
         }
     }
 }

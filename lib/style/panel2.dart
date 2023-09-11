@@ -393,11 +393,15 @@ class __FPanel2State extends State<_FPanel2> {
   }
 
   getBatteryLevel() async {
-    final level = await battery.batteryLevel;
-    if (mounted) {
-      setState(() {
-        batteryLevel = level;
-      });
+    try {
+      final level = await battery.batteryLevel;
+      if (mounted) {
+        setState(() {
+          batteryLevel = level;
+        });
+      }
+    } catch (error) {
+      //print("battery-异常: $error");
     }
   }
 
