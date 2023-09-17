@@ -35,9 +35,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_foundation/ios"
 
 SPEC CHECKSUMS:
-  battery_plus: 9bff772a7e5e4d5381ca3ca92a97373a3d8b2738
+  battery_plus: 7851ab482c336dd101ae735dc9363f01e1223c7c
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  fplayer: 1c91d4e33e9988956fdded8535c2633899d691ce
+  fplayer: 08992f8848f040c409a86c537f9b029cc95b1a97
   fplayer-core: 75f662c872154b9d6e2e0338afb9ef47d79c66d7
   screen_brightness_ios: 715ca807df953bf676d339f11464e438143ee625
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126

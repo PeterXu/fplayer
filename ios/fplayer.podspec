@@ -18,18 +18,11 @@ A new Flutter plugin project.
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
 
-  s.static_framework = true
-
-  # s.preserve_paths = 'Frameworks/*.framework'
-  # s.vendored_framework = 'Framework/IJKMediaPlayer.framework'
-  # s.xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '"$(PODS_ROOT)/Frameworks/"' }
-
-  s.libraries = "bz2", "z", "stdc++"
-
-  s.dependency 'fplayer-core', '~> 1.0.2'
-
-  s.ios.deployment_target = '11.0'
-
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+
+  s.dependency 'fplayer-core', '~> 1.0.2'
+  s.libraries = "bz2", "z", "stdc++"
+  s.static_framework = true
+  s.ios.deployment_target = '11.0'
 end

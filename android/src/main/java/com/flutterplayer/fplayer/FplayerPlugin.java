@@ -58,6 +58,12 @@ import java.util.Map;
 
 /**
  * FPlugin
+ *
+ * 0. For compatiable, still needs registerWith() for pre-v1.2 flutter.
+ * 1. update "*Plugin.java" to implement v2-FlutterPlugin.
+ * 2. interface ActivityAware for 'Activity. [optional]
+ * 3. interface ServiceAware for background service. [optional]
+ * 4. update app's MainActivity to use v2-FlutterActivity.
  */
 public class FplayerPlugin implements MethodCallHandler, FlutterPlugin, ActivityAware, FEngine, FVolume.VolumeKeyListener, AudioManager.OnAudioFocusChangeListener {
 
