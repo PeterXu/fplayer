@@ -210,7 +210,7 @@ public class FPlayer implements MethodChannel.MethodCallHandler, IjkEventListene
         }
     }
 
-    private void handleEvent(int what, int arg1, int arg2, Object extra) {
+    private void handleEvent(int what, long arg1, long arg2, Object extra) {
         Map<String, Object> event = new HashMap<>();
 
         switch (what) {
@@ -221,11 +221,11 @@ public class FPlayer implements MethodChannel.MethodCallHandler, IjkEventListene
                 mEventSink.success(event);
                 break;
             case PLAYBACK_STATE_CHANGED:
-                mState = arg1;
+                mState = (int)arg1;
                 event.put("event", "state_change");
                 event.put("new", arg1);
                 event.put("old", arg2);
-                onStateChanged(arg1, arg2);
+                onStateChanged((int)arg1, (int)arg2);
                 mEventSink.success(event);
                 break;
             case VIDEO_RENDERING_START:
@@ -256,7 +256,7 @@ public class FPlayer implements MethodChannel.MethodCallHandler, IjkEventListene
             case VIDEO_ROTATION_CHANGED:
                 event.put("event", "rotate");
                 event.put("degree", arg1);
-                mRotate = arg1;
+                mRotate = (int)arg1;
                 mEventSink.success(event);
                 if (mWidth > 0 && mHeight > 0) {
                     handleEvent(VIDEO_SIZE_CHANGED, mWidth, mHeight, null);
@@ -275,8 +275,8 @@ public class FPlayer implements MethodChannel.MethodCallHandler, IjkEventListene
                 }
                 // default mRotate is -1 which means unknown
                 // do not send event if mRotate is unknown
-                mWidth = arg1;
-                mHeight = arg2;
+                mWidth = (int)arg1;
+                mHeight = (int)arg2;
                 break;
             case SEEK_COMPLETE:
                 event.put("event", "seek_complete");
@@ -306,7 +306,7 @@ public class FPlayer implements MethodChannel.MethodCallHandler, IjkEventListene
     }
 
     @Override
-    public void onEvent(IjkMediaPlayer ijkMediaPlayer, int what, int arg1, int arg2, Object extra) {
+    public void onEvent(IjkMediaPlayer ijkMediaPlayer, int what, long arg1, long arg2, Object extra) {
         switch (what) {
             case PREPARED:
             case PLAYBACK_STATE_CHANGED:

@@ -388,8 +388,8 @@ static int renderType = 0;
 
 - (void)onEvent4Player:(IJKFFMediaPlayer *)player
               withType:(int)what
-               andArg1:(int)arg1
-               andArg2:(int)arg2
+               andArg1:(long)arg1
+               andArg2:(long)arg2
               andExtra:(void *)extra {
     switch (what) {
     case IJKMPET_PREPARED:
